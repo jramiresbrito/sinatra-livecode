@@ -1,0 +1,32 @@
+<h1 class="text-center">Meus Restaurantes</h1>
+<p class="text-center">Lista com meus restaurantes favoritos!</p>
+
+<div class="container text-center">
+  <form action="/restaurants" method="post">
+    <div class="row mt-5 mb-3 justify-content-center">
+      <h5>Cadastrar novo</h5>
+      <div class="col-lg-3">
+        <input type="text" class="form-control" name="name" placeholder="Nome" aria-label="name">
+      </div>
+      <div class="col-lg-3">
+        <input type="text" class="form-control" name="city" placeholder="Endereço" aria-label="city">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">ADICIONAR</button>
+  </form>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <ul class="list-group mt-5">
+        <% @restaurants.each do |restaurant| %>
+          <li class="list-group-item">
+            <a href="restaurants/<%= restaurant.id %>">
+              <%= restaurant.name %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
